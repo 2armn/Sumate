@@ -8,6 +8,23 @@
 
 (function() {
   "use strict";
+  /**
+   * Script que cambia el logo de sumate a una version en negativo cuando el usuario
+   * escrolea para abajo
+   */
+
+  var initialSrc = "assets/img/logo-sumatePositivo2.0_SIN_SUBTITULO.png";
+  var scrollSrc = "assets/img/logo-sumateNegativo1.0_SIN_SUBTITULO.png";
+
+  window.onscroll = function() {logoScroll()};
+  function logoScroll() {
+    if (document.body.scrollTop > 75 || document.documentElement.scrollTop > 75) {
+      document.getElementById("main-avatar-img").src = scrollSrc;
+    } else {
+      document.getElementById("main-avatar-img").src = initialSrc;
+    }
+  }
+
 
   /**
    * Apply .scrolled class to the body as the page is scrolled down
@@ -101,6 +118,7 @@
     });
   }
   window.addEventListener('load', aosInit);
+   
 
   /**
    * Initiate glightbox
